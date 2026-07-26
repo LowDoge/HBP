@@ -1,0 +1,61 @@
+<Solution>
+    <Folder Name="/Solution Items/">
+        <File Path=".editorconfig"/>
+        <File Path=".gitignore"/>
+        <File Path="README.md"/>
+        <File Path="LICENSE"/>
+    </Folder>
+    <Folder Name="/docs/"/>
+    <Folder Name="/docs/specifications/">
+        <File Path="docs/specifications/01-introduction.md"/>
+        <File Path="docs/specifications/02-functional-requirements.md"/>
+        <File Path="docs/specifications/03-non-functional-requirements.md"/>
+        <File Path="docs/specifications/04-system-design.md"/>
+        <File Path="docs/specifications/05-infrastructure.md"/>
+        <File Path="docs/specifications/06-definition-of-done.md"/>
+        <File Path="docs/specifications/07-constraints-and-risks.md"/>
+        <File Path="docs/specifications/README.md"/>
+    </Folder>
+    <Folder Name="/docs/architecture/"/>
+    <Folder Name="/docs/architecture/decisions/">
+        <File Path="docs/architecture/decisions/001-use-kafka.md"/>
+        <File Path="docs/architecture/decisions/002-use-grpc.md"/>
+        <File Path="docs/architecture/decisions/003-use-dapper.md"/>
+        <File Path="docs/architecture/decisions/004-use-redis.md"/>
+        <File Path="docs/architecture/decisions/005-saga-choreography.md"/>
+        <File Path="docs/architecture/decisions/006-transactional-outbox.md"/>
+    </Folder>
+
+    <Folder Name="/src/"/>
+    <Folder Name="/src/Services/"/>
+    <Folder Name="/src/Services/Hotel/">
+        <Project Path="src/Services/Hotel/Hotel.API/Hotel.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Booking/">
+        <Project Path="src/Services/Booking/Booking.API/Booking.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Guest/">
+        <Project Path="src/Services/Guest/Guest.API/Guest.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Inventory/">
+        <Project Path="src/Services/Inventory/Inventory.API/Inventory.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Notification/">
+        <Project Path="src/Services/Notification/Notification.API/Notification.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Payment/">
+        <Project Path="src/Services/Payment/Payment.API/Payment.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Pricing/">
+        <Project Path="src/Services/Pricing/Pricing.API/Pricing.API.csproj"/>
+    </Folder>
+    <Folder Name="/src/Services/Reporting/">
+        <Project Path="src/Services/Reporting/Reporting.API/Reporting.API.csproj"/>
+    </Folder>
+
+    <Folder Name="/src/APIGateway/">
+        <Project Path="src/APIGateway/YarpGateway/YarpGateway.csproj"/>
+    </Folder>
+    <Folder Name="/tests/">
+    </Folder>
+</Solution>
