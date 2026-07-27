@@ -25,6 +25,14 @@ public class EntityTests
     }
 
     [Fact]
+    public void InstanceGetHashCodeDeterministic()
+    {
+        var a = new TestEntity { Id = Guid.NewGuid() };
+
+        a.GetHashCode().Should().Be(a.GetHashCode());
+    }
+
+    [Fact]
     public void SameIdReturnsEqualsHashCode()
     {
         var id = Guid.NewGuid();
