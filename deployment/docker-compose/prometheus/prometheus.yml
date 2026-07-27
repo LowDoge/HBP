@@ -1,0 +1,57 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # ASP.NET Core services expose /metrics via prometheus-net.AspNetCore.
+  # Endpoints are resolved through Docker DNS. Targets will appear as
+  # "down" until the corresponding service is running — that is expected.
+
+  - job_name: 'yarp-gateway'
+    static_configs:
+      - targets: ['gateway:5000']
+    metrics_path: /metrics
+
+  - job_name: 'hotel-service'
+    static_configs:
+      - targets: ['hotel-api:5001']
+    metrics_path: /metrics
+
+  - job_name: 'inventory-service'
+    static_configs:
+      - targets: ['inventory-api:5002']
+    metrics_path: /metrics
+
+  - job_name: 'booking-service'
+    static_configs:
+      - targets: ['booking-api:5003']
+    metrics_path: /metrics
+
+  - job_name: 'pricing-service'
+    static_configs:
+      - targets: ['pricing-api:5004']
+    metrics_path: /metrics
+
+  - job_name: 'payment-service'
+    static_configs:
+      - targets: ['payment-api:5005']
+    metrics_path: /metrics
+
+  - job_name: 'guest-service'
+    static_configs:
+      - targets: ['guest-api:5006']
+    metrics_path: /metrics
+
+  - job_name: 'notification-service'
+    static_configs:
+      - targets: ['notification-api:5007']
+    metrics_path: /metrics
+
+  - job_name: 'reporting-service'
+    static_configs:
+      - targets: ['reporting-api:5008']
+    metrics_path: /metrics

@@ -58,4 +58,28 @@
     </Folder>
     <Folder Name="/tests/">
     </Folder>
+
+    <Folder Name="/deployment/"/>
+    <Folder Name="/deployment/docker-compose/">
+        <File Path="deployment/docker-compose/docker-compose.yml"/>
+        <File Path="deployment/docker-compose/.env.example"/>
+        <File Path="deployment/docker-compose/.env"/>
+    </Folder>
+    <Folder Name="/deployment/docker-compose/postgres/">
+        <File Path="deployment/docker-compose/postgres/init-databases.sh"/>
+    </Folder>
+    <Folder Name="/deployment/docker-compose/kafka/">
+        <File Path="deployment/docker-compose/kafka/init-topics.sh"/>
+    </Folder>
+    <Folder Name="/deployment/docker-compose/prometheus/">
+        <File Path="deployment/docker-compose/prometheus/prometheus.yml"/>
+    </Folder>
+    <Folder Name="/deployment/docker-compose/grafana/"/>
+    <Folder Name="/deployment/docker-compose/grafana/provisioning/"/>
+    <Folder Name="/deployment/docker-compose/grafana/provisioning/datasources/">
+        <File Path="deployment/docker-compose/grafana/provisioning/datasources/datasource.yml"/>
+    </Folder>
+    <Folder Name="/deployment/docker-compose/grafana/provisioning/dashboards/">
+        <File Path="deployment/docker-compose/grafana/provisioning/dashboards/dashboards.yml"/>
+    </Folder>
 </Solution>
