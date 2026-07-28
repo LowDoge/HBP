@@ -13,4 +13,8 @@
     <PackageReference Include="Npgsql" Version="9.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HBP.Common\HBP.Common.csproj" />
+  </ItemGroup>
+
 </Project>
