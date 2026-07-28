@@ -30,6 +30,7 @@
     <Folder Name="/src/" />
     <Folder Name="/src/BuildingBlocks/">
         <Project Path="src/BuildingBlocks/HBP.Common/HBP.Common.csproj" />
+        <Project Path="src/BuildingBlocks/HBP.Persistence/HBP.Persistence.csproj" />
     </Folder>
 
     <Folder Name="/src/Services/" />
