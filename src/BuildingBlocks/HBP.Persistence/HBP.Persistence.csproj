@@ -17,4 +17,8 @@
     <ProjectReference Include="..\HBP.Common\HBP.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="HBP.Persistence.UnitTests" />
+  </ItemGroup>
+
 </Project>

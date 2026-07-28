@@ -1,8 +1,8 @@
-﻿using System.Data;
+﻿using System.Data.Common;
 
 namespace HBP.Persistence.Abstractions;
 
 public interface IDbConnectionFactory
 {
-    Task<IDbConnection> OpenAsync(CancellationToken cancellationToken = default);
+    Task<DbConnection> OpenAsync(CancellationToken cancellationToken = default);
 }
