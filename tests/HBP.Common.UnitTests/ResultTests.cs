@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 
 namespace HBP.Common.UnitTests;
 
@@ -91,7 +90,7 @@ public class ResultTests
     public void FailureResultCreatesFailureResult()
     {
         var e = Error.NotFound("Test", "x");
-        var r = Result.Failure<TestResult>(e);
+        var r = Result.Failure<TestValue>(e);
 
         r.IsSuccess.Should().BeFalse();
         r.IsFailure.Should().BeTrue();

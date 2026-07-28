@@ -7,7 +7,7 @@ public class AggregateTests
     [Fact]
     public void AddDomainEventAppendsToCollection()
     {
-        var e = new TestEvent { OccuredAt = DateTimeOffset.UtcNow };
+        var e = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
         var a = new TestAggregate { Id = Guid.NewGuid() };
 
         a.AddDomainEvent(e);
@@ -18,9 +18,9 @@ public class AggregateTests
     [Fact]
     public void AddDomainEventPreservesOrder()
     {
-        var e1 = new TestEvent { OccuredAt = DateTimeOffset.UtcNow };
-        var e2 = new TestEvent { OccuredAt = DateTimeOffset.UtcNow };
-        var e3 = new TestEvent { OccuredAt = DateTimeOffset.UtcNow };
+        var e1 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
+        var e2 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
+        var e3 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
         var a = new TestAggregate { Id = Guid.NewGuid() };
 
         a.AddDomainEvent(e1);
@@ -33,8 +33,8 @@ public class AggregateTests
     [Fact]
     public void ClearDomainEventsRemovesAll()
     {
-        var e1 = new TestEvent { OccuredAt = DateTimeOffset.UtcNow };
-        var e2 = new TestEvent { OccuredAt = DateTimeOffset.UtcNow };
+        var e1 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
+        var e2 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
         var a = new TestAggregate { Id = Guid.NewGuid() };
 
         a.AddDomainEvent(e1);
@@ -51,6 +51,6 @@ public class AggregateTests
 
     private sealed class TestEvent : IDomainEvent
     {
-        public DateTimeOffset OccuredAt { get; init; }
+        public DateTimeOffset OccurredAt { get; init; }
     }
 }
