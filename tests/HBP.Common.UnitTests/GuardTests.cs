@@ -46,7 +46,7 @@ public class GuardTests
     [InlineData("  text  ")]
     public void AgainstNullOrEmptyReturnsValueForValidString(string input)
     {
-        var result = Guard.AgainstNullOrEmpty(input, nameof(input));
+        var result = Guard.AgainstNullOrWhiteSpace(input, nameof(input));
 
         result.Should().Be(input);
     }
@@ -59,7 +59,7 @@ public class GuardTests
     [InlineData("\n")]
     public void AgainstNullOrEmptyThrowsForInvalidString(string? input)
     {
-        var act = () => Guard.AgainstNullOrEmpty(input, nameof(input));
+        var act = () => Guard.AgainstNullOrWhiteSpace(input, nameof(input));
 
         act.Should().Throw<ArgumentException>().WithParameterName("input");
     }

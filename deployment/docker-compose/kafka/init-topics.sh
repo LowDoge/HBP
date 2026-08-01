@@ -14,6 +14,11 @@ REPLICATION="${KAFKA_REPLICATION:-1}"
 RETENTION_MS="${KAFKA_RETENTION_MS:-604800000}"   # 7 дней
 
 TOPICS=(
+    "hotel.created"
+    "hotel.renamed"
+    "room.added"
+    "room.edited"
+    "room.status.changed"
     "booking.created"
     "booking.confirmed"
     "booking.cancelled"

@@ -61,3 +61,6 @@ nunit-*.xml
 .vs
 .vscode
 HBP.sln.DotSettings.user
+
+# CSharpier cache
+.csharpier/

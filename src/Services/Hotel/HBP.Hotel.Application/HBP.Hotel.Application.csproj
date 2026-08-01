@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference
+      Include="Microsoft.Extensions.DependencyInjection.Abstractions"
+      Version="10.0.10"
+    />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HBP.Hotel.Domain\HBP.Hotel.Domain.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\HBP.Data.Abstractions\HBP.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\HBP.Messaging.Abstractions\HBP.Messaging.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Hotels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="HBP.Hotel.Application.UnitTests" />
+  </ItemGroup>
+</Project>
