@@ -1,7 +1,6 @@
 using FluentAssertions;
-using HBP.Persistence.Postgres;
 
-namespace HBP.Persistence.UnitTests.Postgres;
+namespace HBP.Data.Postgres.UnitTests.Postgres;
 
 public class PostgresConnectionFactoryTests
 {
@@ -10,8 +9,7 @@ public class PostgresConnectionFactoryTests
     {
         var act = () => new PostgresConnectionFactory(null!);
 
-        act.Should().Throw<ArgumentException>()
-            .WithParameterName("connectionString");
+        act.Should().Throw<ArgumentException>().WithParameterName("connectionString");
     }
 
     [Fact]
@@ -19,8 +17,7 @@ public class PostgresConnectionFactoryTests
     {
         var act = () => new PostgresConnectionFactory(string.Empty);
 
-        act.Should().Throw<ArgumentException>()
-            .WithParameterName("connectionString");
+        act.Should().Throw<ArgumentException>().WithParameterName("connectionString");
     }
 
     [Fact]
@@ -28,8 +25,7 @@ public class PostgresConnectionFactoryTests
     {
         var act = () => new PostgresConnectionFactory("   ");
 
-        act.Should().Throw<ArgumentException>()
-            .WithParameterName("connectionString");
+        act.Should().Throw<ArgumentException>().WithParameterName("connectionString");
     }
 
     [Fact]

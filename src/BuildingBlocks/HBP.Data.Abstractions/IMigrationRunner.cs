@@ -1,4 +1,4 @@
-﻿namespace HBP.Persistence.Migrations;
+﻿namespace HBP.Data.Abstractions;
 
 public interface IMigrationRunner
 {

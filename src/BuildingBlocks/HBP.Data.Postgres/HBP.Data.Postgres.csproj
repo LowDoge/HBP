@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -15,10 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HBP.Common\HBP.Common.csproj" />
+    <ProjectReference Include="..\HBP.Data.Abstractions\HBP.Data.Abstractions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="HBP.Persistence.UnitTests" />
+    <InternalsVisibleTo Include="HBP.Data.Postgres.UnitTests" />
   </ItemGroup>
-
 </Project>
