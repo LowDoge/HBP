@@ -1,94 +1,105 @@
 <Solution>
-    <Folder Name="/Solution Items/">
-        <File Path=".editorconfig" />
-        <File Path=".gitignore" />
-        <File Path="README.md" />
-        <File Path="LICENSE" />
-    </Folder>
-    <Folder Name="/docs/" />
-    <Folder Name="/docs/specifications/">
-        <File Path="docs/specifications/01-introduction.md" />
-        <File Path="docs/specifications/02-functional-requirements.md" />
-        <File Path="docs/specifications/03-non-functional-requirements.md" />
-        <File Path="docs/specifications/04-system-design.md" />
-        <File Path="docs/specifications/05-infrastructure.md" />
-        <File Path="docs/specifications/06-definition-of-done.md" />
-        <File Path="docs/specifications/07-constraints-and-risks.md" />
-        <File Path="docs/specifications/README.md" />
-    </Folder>
-    <Folder Name="/docs/architecture/" />
-    <Folder Name="/docs/architecture/decisions/">
-        <File Path="docs/architecture/decisions/001-use-kafka.md" />
-        <File Path="docs/architecture/decisions/002-use-grpc.md" />
-        <File Path="docs/architecture/decisions/003-use-dapper.md" />
-        <File Path="docs/architecture/decisions/004-use-redis.md" />
-        <File Path="docs/architecture/decisions/005-saga-choreography.md" />
-        <File Path="docs/architecture/decisions/006-transactional-outbox.md" />
-    </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path=".gitattributes" />
+    <File Path="README.md" />
+    <File Path="LICENSE" />
+  </Folder>
+  <Folder Name="/docs/" />
+  <Folder Name="/docs/specifications/">
+    <File Path="docs/specifications/01-introduction.md" />
+    <File Path="docs/specifications/02-functional-requirements.md" />
+    <File Path="docs/specifications/03-non-functional-requirements.md" />
+    <File Path="docs/specifications/04-system-design.md" />
+    <File Path="docs/specifications/05-infrastructure.md" />
+    <File Path="docs/specifications/06-definition-of-done.md" />
+    <File Path="docs/specifications/07-constraints-and-risks.md" />
+    <File Path="docs/specifications/README.md" />
+  </Folder>
+  <Folder Name="/docs/architecture/" />
+  <Folder Name="/docs/architecture/decisions/">
+    <File Path="docs/architecture/decisions/001-use-kafka.md" />
+    <File Path="docs/architecture/decisions/002-use-grpc.md" />
+    <File Path="docs/architecture/decisions/003-use-dapper.md" />
+    <File Path="docs/architecture/decisions/004-use-redis.md" />
+    <File Path="docs/architecture/decisions/005-saga-choreography.md" />
+    <File Path="docs/architecture/decisions/006-transactional-outbox.md" />
+  </Folder>
 
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/HBP.Common/HBP.Common.csproj" />
+    <Project Path="src/BuildingBlocks/HBP.Messaging.Kafka/HBP.Messaging.Kafka.csproj" />
+    <Project Path="src/BuildingBlocks/HBP.Observability/HBP.Observability.csproj" />
+    <Project Path="src/BuildingBlocks/HBP.Data.Abstractions/HBP.Data.Abstractions.csproj" />
+    <Project Path="src/BuildingBlocks/HBP.Data.Postgres/HBP.Data.Postgres.csproj" />
+    <Project Path="src/BuildingBlocks/HBP.Messaging.Abstractions/HBP.Messaging.Abstractions.csproj" />
+  </Folder>
 
-    <Folder Name="/src/" />
-    <Folder Name="/src/BuildingBlocks/">
-        <Project Path="src/BuildingBlocks/HBP.Common/HBP.Common.csproj" />
-        <Project Path="src/BuildingBlocks/HBP.Persistence/HBP.Persistence.csproj" />
-    </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/Hotel/">
+    <Project Path="src/Services/Hotel/HBP.Hotel.Application/HBP.Hotel.Application.csproj" />
+    <Project Path="src/Services/Hotel/HBP.Hotel.API/HBP.Hotel.API.csproj" />
+    <Project Path="src/Services/Hotel/HBP.Hotel.Domain/HBP.Hotel.Domain.csproj" />
+    <Project Path="src/Services/Hotel/HBP.Hotel.Infrastructure/HBP.Hotel.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Booking/">
+    <Project Path="src/Services/Booking/Booking.API/Booking.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Guest/">
+    <Project Path="src/Services/Guest/Guest.API/Guest.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Inventory/">
+    <Project Path="src/Services/Inventory/Inventory.API/Inventory.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Notification/">
+    <Project Path="src/Services/Notification/Notification.API/Notification.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Payment/">
+    <Project Path="src/Services/Payment/Payment.API/Payment.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Pricing/">
+    <Project Path="src/Services/Pricing/Pricing.API/Pricing.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Reporting/">
+    <Project Path="src/Services/Reporting/Reporting.API/Reporting.API.csproj" />
+  </Folder>
 
-    <Folder Name="/src/Services/" />
-    <Folder Name="/src/Services/Hotel/">
-        <Project Path="src/Services/Hotel/Hotel.API/Hotel.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Booking/">
-        <Project Path="src/Services/Booking/Booking.API/Booking.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Guest/">
-        <Project Path="src/Services/Guest/Guest.API/Guest.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Inventory/">
-        <Project Path="src/Services/Inventory/Inventory.API/Inventory.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Notification/">
-        <Project Path="src/Services/Notification/Notification.API/Notification.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Payment/">
-        <Project Path="src/Services/Payment/Payment.API/Payment.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Pricing/">
-        <Project Path="src/Services/Pricing/Pricing.API/Pricing.API.csproj" />
-    </Folder>
-    <Folder Name="/src/Services/Reporting/">
-        <Project Path="src/Services/Reporting/Reporting.API/Reporting.API.csproj" />
-    </Folder>
+  <Folder Name="/src/APIGateway/">
+    <Project Path="src/APIGateway/YarpGateway/YarpGateway.csproj" />
+  </Folder>
 
-    <Folder Name="/src/APIGateway/">
-        <Project Path="src/APIGateway/YarpGateway/YarpGateway.csproj" />
-    </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HBP.Common.UnitTests/HBP.Common.UnitTests.csproj" />
+    <Project Path="tests/HBP.Hotel.Infrastructure.UnitTests/HBP.Hotel.Infrastructure.UnitTests.csproj" />
+    <Project Path="tests/HBP.Messaging.Kafka.UnitTests/HBP.Messaging.Kafka.UnitTests.csproj" />
+    <Project Path="tests/HBP.Data.Postgres.UnitTests/HBP.Data.Postgres.UnitTests.csproj" />
+    <Project Path="tests/HBP.Hotel.API.UnitTests/HBP.Hotel.API.UnitTests.csproj" />
+    <Project Path="tests/HBP.Hotel.Application.UnitTests/HBP.Hotel.Application.UnitTests.csproj" />
+  </Folder>
 
-    <Folder Name="/tests/">
-        <Project Path="tests/HBP.Common.UnitTests/HBP.Common.UnitTests.csproj" />
-        <Project Path="tests/HBP.Persistence.UnitTests/HBP.Persistence.UnitTests.csproj" />
-    </Folder>
-
-    <Folder Name="/deployment/" />
-    <Folder Name="/deployment/docker-compose/">
-        <File Path="deployment/docker-compose/docker-compose.yml" />
-        <File Path="deployment/docker-compose/.env.example" />
-        <File Path="deployment/docker-compose/.env" />
-    </Folder>
-    <Folder Name="/deployment/docker-compose/postgres/">
-        <File Path="deployment/docker-compose/postgres/init-databases.sh" />
-    </Folder>
-    <Folder Name="/deployment/docker-compose/kafka/">
-        <File Path="deployment/docker-compose/kafka/init-topics.sh" />
-    </Folder>
-    <Folder Name="/deployment/docker-compose/prometheus/">
-        <File Path="deployment/docker-compose/prometheus/prometheus.yml" />
-    </Folder>
-    <Folder Name="/deployment/docker-compose/grafana/" />
-    <Folder Name="/deployment/docker-compose/grafana/provisioning/" />
-    <Folder Name="/deployment/docker-compose/grafana/provisioning/datasources/">
-        <File Path="deployment/docker-compose/grafana/provisioning/datasources/datasource.yml" />
-    </Folder>
-    <Folder Name="/deployment/docker-compose/grafana/provisioning/dashboards/">
-        <File Path="deployment/docker-compose/grafana/provisioning/dashboards/dashboards.yml" />
-    </Folder>
+  <Folder Name="/deployment/" />
+  <Folder Name="/deployment/docker-compose/">
+    <File Path="deployment/docker-compose/docker-compose.yml" />
+    <File Path="deployment/docker-compose/.env.example" />
+    <File Path="deployment/docker-compose/.env" />
+  </Folder>
+  <Folder Name="/deployment/docker-compose/postgres/">
+    <File Path="deployment/docker-compose/postgres/init-databases.sh" />
+  </Folder>
+  <Folder Name="/deployment/docker-compose/kafka/">
+    <File Path="deployment/docker-compose/kafka/init-topics.sh" />
+  </Folder>
+  <Folder Name="/deployment/docker-compose/prometheus/">
+    <File Path="deployment/docker-compose/prometheus/prometheus.yml" />
+  </Folder>
+  <Folder Name="/deployment/docker-compose/grafana/" />
+  <Folder Name="/deployment/docker-compose/grafana/provisioning/" />
+  <Folder Name="/deployment/docker-compose/grafana/provisioning/datasources/">
+    <File Path="deployment/docker-compose/grafana/provisioning/datasources/datasource.yml" />
+  </Folder>
+  <Folder Name="/deployment/docker-compose/grafana/provisioning/dashboards/">
+    <File Path="deployment/docker-compose/grafana/provisioning/dashboards/dashboards.yml" />
+  </Folder>
 </Solution>

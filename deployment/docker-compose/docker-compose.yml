@@ -7,6 +7,35 @@
 name: hbp
 
 services:
+  hotel-api:
+    container_name: hbp-hotel-api
+    build:
+      context: ../..
+      dockerfile: src/Services/Hotel/HBP.Hotel.API/Dockerfile
+    image: hbp/hotel-api:dev
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__HotelDb: "Host=postgres;Port=5432;Database=hotel_db;Username=hotel_service;Password=${HOTEL_SERVICE_PASSWORD}"
+      ConnectionStrings__Redis: "redis:6379,password=${REDIS_PASSWORD}"
+      Messaging__Kafka__BootstrapServers: "kafka:9092"
+      Observability__Seq__Url: "http://seq:5341"
+      Observability__OpenTelemetry__Endpoint: "http://jaeger:4317"
+    ports:
+      - "5001:8080"
+    networks:
+      - hbp-net
+    healthcheck:
+      test: [ "CMD-SHELL", "wget -q --spider http://localhost:8080/health/live || exit 1" ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
   # PostgreSQL 17: один инстанс, 8 БД (по одной на сервис).
   postgres:
     image: postgres:17-alpine
@@ -32,7 +61,7 @@ services:
     networks:
       - hbp-net
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d postgres"]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d postgres" ]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -58,7 +87,7 @@ services:
     networks:
       - hbp-net
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      test: [ "CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -89,7 +118,7 @@ services:
     networks:
       - hbp-net
     healthcheck:
-      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1" ]
       interval: 15s
       timeout: 10s
       retries: 10
@@ -109,7 +138,7 @@ services:
       KAFKA_RETENTION_MS: ${KAFKA_RETENTION_MS}
     volumes:
       - ./kafka/init-topics.sh:/opt/init-topics.sh:ro
-    entrypoint: ["/bin/bash", "/opt/init-topics.sh"]
+    entrypoint: [ "/bin/bash", "/opt/init-topics.sh" ]
     networks:
       - hbp-net
     restart: "no"
@@ -145,7 +174,7 @@ services:
     networks:
       - hbp-net
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:80/health || exit 1"]
+      test: [ "CMD-SHELL", "curl -fsS http://localhost:80/health || exit 1" ]
       interval: 15s
       timeout: 5s
       retries: 5
@@ -165,7 +194,7 @@ services:
     networks:
       - hbp-net
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:9090/-/healthy"]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:9090/-/healthy" ]
       interval: 15s
       timeout: 5s
       retries: 5
@@ -189,7 +218,7 @@ services:
       prometheus:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health" ]
       interval: 15s
       timeout: 5s
       retries: 5
@@ -207,7 +236,7 @@ services:
     networks:
       - hbp-net
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:16686/"]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:16686/" ]
       interval: 15s
       timeout: 5s
       retries: 5
