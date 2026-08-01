@@ -8,7 +8,7 @@ public class AggregateTests
     public void AddDomainEventAppendsToCollection()
     {
         var e = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
-        var a = new TestAggregate { Id = Guid.NewGuid() };
+        var a = new TestAggregate(Guid.NewGuid());
 
         a.AddDomainEvent(e);
         a.DomainEvents.Should().HaveCount(1);
@@ -21,7 +21,7 @@ public class AggregateTests
         var e1 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
         var e2 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
         var e3 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
-        var a = new TestAggregate { Id = Guid.NewGuid() };
+        var a = new TestAggregate(Guid.NewGuid());
 
         a.AddDomainEvent(e1);
         a.AddDomainEvent(e2);
@@ -35,7 +35,7 @@ public class AggregateTests
     {
         var e1 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
         var e2 = new TestEvent { OccurredAt = DateTimeOffset.UtcNow };
-        var a = new TestAggregate { Id = Guid.NewGuid() };
+        var a = new TestAggregate(Guid.NewGuid());
 
         a.AddDomainEvent(e1);
         a.AddDomainEvent(e2);
@@ -44,7 +44,7 @@ public class AggregateTests
         a.DomainEvents.Should().BeEmpty();
     }
 
-    private sealed class TestAggregate : AggregateRoot<Guid>
+    private sealed class TestAggregate(Guid id) : AggregateRoot<Guid>(id)
     {
         public new void AddDomainEvent(IDomainEvent @event) => base.AddDomainEvent(@event);
     }

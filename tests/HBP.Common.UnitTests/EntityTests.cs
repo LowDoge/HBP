@@ -8,8 +8,8 @@ public class EntityTests
     public void SameIdEqualsReturnsTrue()
     {
         var id = Guid.NewGuid();
-        var a = new TestEntity { Id = id };
-        var b = new TestEntity { Id = id };
+        var a = new TestEntity(id);
+        var b = new TestEntity(id);
 
         a.Equals(b).Should().BeTrue();
         (a == b).Should().BeTrue();
@@ -18,7 +18,7 @@ public class EntityTests
     [Fact]
     public void NullEqualsReturnsFalse()
     {
-        var a = new TestEntity { Id = Guid.NewGuid() };
+        var a = new TestEntity(Guid.NewGuid());
 
         a.Equals((object?)null).Should().BeFalse();
         (a == (object?)null).Should().BeFalse();
@@ -27,7 +27,7 @@ public class EntityTests
     [Fact]
     public void InstanceGetHashCodeDeterministic()
     {
-        var a = new TestEntity { Id = Guid.NewGuid() };
+        var a = new TestEntity(Guid.NewGuid());
 
         a.GetHashCode().Should().Be(a.GetHashCode());
     }
@@ -36,8 +36,8 @@ public class EntityTests
     public void SameIdReturnsEqualsHashCode()
     {
         var id = Guid.NewGuid();
-        var a = new TestEntity { Id = id };
-        var b = new TestEntity { Id = id };
+        var a = new TestEntity(id);
+        var b = new TestEntity(id);
 
         a.GetHashCode().Should().Be(b.GetHashCode());
     }
@@ -46,14 +46,12 @@ public class EntityTests
     public void HashSetContainsEntity()
     {
         var id = Guid.NewGuid();
-        var a = new TestEntity { Id = id };
+        var a = new TestEntity(id);
         var set = new HashSet<TestEntity> { a };
 
         set.Contains(a).Should().BeTrue();
-        set.Contains(new TestEntity { Id = id }).Should().BeTrue();
+        set.Contains(new TestEntity(id)).Should().BeTrue();
     }
 
-    private sealed class TestEntity : Entity<Guid>
-    {
-    }
+    private sealed class TestEntity(Guid id) : Entity<Guid>(id) { }
 }
